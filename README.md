@@ -25,25 +25,32 @@ Removed missing values and duplicates
 Dropped irrelevant columns (e.g., job ID, salary, logo)
 Merged key text fields (e.g., description, requirements) for unified analysis
 Text cleaned: lowercased, punctuation removed, and standardized
+
 🧠 Feature Engineering
 
 🔡 TF-IDF Vectorization
-Applied TF-IDF (Term Frequency–Inverse Document Frequency) on textual data.
-Transformed text into numerical form for model input.
-Limited to the top 5,000 features to focus on the most relevant terms and reduce dimensionality.
+
+1-Applied TF-IDF (Term Frequency–Inverse Document Frequency) on textual data.
+2-Transformed text into numerical form for model input.
+3-Limited to the top 5,000 features to focus on the most relevant terms and reduce dimensionality.
 🤖 Models Trained
 
 🌲 Random Forest (RF)
-A powerful ensemble model that builds multiple decision trees and averages their outputs.
-Performed well in identifying fake jobs based on structured and TF-IDF-based features.
+
+1-A powerful ensemble model that builds multiple decision trees and averages their outputs.
+2-Performed well in identifying fake jobs based on structured and TF-IDF-based features.
+
 🧠 BERT (Bidirectional Encoder Representations from Transformers)
-A pre-trained deep learning model developed by Google for understanding language context.
-Fine-tuned for fake job classification.
-Used raw text inputs for deep semantic analysis, outperforming traditional models on contextual understanding.
+
+1-A pre-trained deep learning model developed by Google for understanding language context.
+2-Fine-tuned for fake job classification.
+3-Used raw text inputs for deep semantic analysis, outperforming traditional models on contextual understanding.
+
 📈 Results
 
-Random Forest showed high accuracy and interpretability with TF-IDF inputs.
-BERT achieved superior performance in capturing deeper patterns in text, offering higher precision and recall for detecting fraud.
+1-Random Forest showed high accuracy and interpretability with TF-IDF inputs.
+2-BERT achieved superior performance in capturing deeper patterns in text, offering higher precision and recall for detecting fraud.
+
 📌 Conclusion
 
 This project proves that combining traditional machine learning (Random Forest) with state-of-the-art deep learning (BERT) enables robust detection of fraudulent job postings. It has practical applications for job platforms and users who want to avoid online scams.
