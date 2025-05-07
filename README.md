@@ -1,56 +1,78 @@
-🕵️‍♀️ Fake Job Posting Detection
+# 🕵️ Fake Job Postings Detection
 
-This project aims to detect fake job postings using advanced machine learning techniques. With the increasing number of online job scams, this project helps identify fraudulent job listings through automated classification models.
+## 📌 Overview
+Job fraud is a growing problem, especially with the increasing reliance on online job platforms. This project aims to use machine learning and natural language processing (NLP) techniques to detect fake job postings based on their textual content and associated metadata.
 
-📌 Objective
+---
 
-To build and evaluate models capable of classifying job postings as fake or real by analyzing their content and structure.
+## 🎯 Objective
+The primary goal of this project is to build a classification system that accurately identifies whether a job posting is **fake or legitimate**. This system can help job seekers avoid scams and assist job platforms in filtering out malicious content.
 
-📊 Dataset
+---
 
-The dataset includes labeled job postings with the following features:
+## 📊 Dataset
+We used the **Fake Job Postings dataset** from Kaggle. It includes over 17,000 job postings with the following features:
 
-Job title
-Company profile
-Job description
-Requirements
-Location
-Employment type
-Label: fraudulent (0 = Real, 1 = Fake)
-🧹 Data Preprocessing
+- **Company Information** (company name, location, department)
+- **Job Description Fields** (title, description, requirements, benefits)
+- **Metadata** (telecommuting status, employment type, required experience, etc.)
+- **Target Variable**: `fraudulent` (1 = Fake, 0 = Real)
 
-Preprocessing steps:
+---
 
-Removed missing values and duplicates
-Dropped irrelevant columns (e.g., job ID, salary, logo)
-Merged key text fields (e.g., description, requirements) for unified analysis
-Text cleaned: lowercased, punctuation removed, and standardized
+## 🧠 Approach
 
-🧠 Feature Engineering
+### 1. **Data Preprocessing**
+- Removed missing values, irrelevant columns, and duplicates
+- Combined and cleaned text columns (e.g., title, description, requirements)
+- Lowercased all text and removed special characters and stopwords
+- Tokenized and lemmatized the textual content
 
-🔡 TF-IDF Vectorization
+### 2. **Feature Engineering**
+- Applied **TF-IDF Vectorization** on combined text fields with a vocabulary size limited to 5,000 features
+- Retained only the most relevant metadata for modeling
 
-1-Applied TF-IDF (Term Frequency–Inverse Document Frequency) on textual data.
-2-Transformed text into numerical form for model input.
-3-Limited to the top 5,000 features to focus on the most relevant terms and reduce dimensionality.
-🤖 Models Trained
+### 3. **Model Training**
 
-🌲 Random Forest (RF)
+We trained and compared two main models:
 
-1-A powerful ensemble model that builds multiple decision trees and averages their outputs.
-2-Performed well in identifying fake jobs based on structured and TF-IDF-based features.
+#### ✅ **Random Forest Classifier (RF)**
+- Traditional machine learning model
+- Trained on TF-IDF features
+- Tuned using GridSearchCV for optimal parameters
 
-🧠 BERT (Bidirectional Encoder Representations from Transformers)
+#### ✅ **BERT (Bidirectional Encoder Representations from Transformers)**
+- Pre-trained deep learning model for natural language understanding
+- Fine-tuned on job posting text
+- Achieved higher accuracy and robustness for subtle language-based fraud patterns
 
-1-A pre-trained deep learning model developed by Google for understanding language context.
-2-Fine-tuned for fake job classification.
-3-Used raw text inputs for deep semantic analysis, outperforming traditional models on contextual understanding.
+---
 
-📈 Results
+## 📈 Results & Performance
 
-1-Random Forest showed high accuracy and interpretability with TF-IDF inputs.
-2-BERT achieved superior performance in capturing deeper patterns in text, offering higher precision and recall for detecting fraud.
+| Model      | Accuracy | Precision | Recall | F1-Score |
+|------------|----------|-----------|--------|----------|
+| Random Forest | ~0.96    | High      | Moderate | Good     |
+| BERT         | ~0.98    | Very High | High    | Excellent |
 
-📌 Conclusion
+- BERT outperformed Random Forest in all major metrics.
+- The use of NLP and pre-trained models proved highly effective for fraud detection.
 
-This project proves that combining traditional machine learning (Random Forest) with state-of-the-art deep learning (BERT) enables robust detection of fraudulent job postings. It has practical applications for job platforms and users who want to avoid online scams.
+---
+
+## 🧪 Project Highlights
+- Balanced NLP and tabular modeling approaches
+- High-performing models with strong recall for fraud detection
+- Scalable to large datasets using BERT architecture
+- Clean modular code for reproducibility and enhancement
+
+---
+
+## 🤝 Contributions
+Feel free to fork the repo, suggest enhancements, or raise issues!
+---
+
+## 🙏 Acknowledgments
+Thanks to open-source contributions and [Kaggle](https://www.kaggle.com/datasets/shivamb/real-or-fake-fake-jobposting-prediction/data) for the dataset on real or fake job.
+
+---
